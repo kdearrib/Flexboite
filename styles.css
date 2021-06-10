@@ -1,0 +1,55 @@
+/* Reset du style par défaut du body */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+    Le parent s'étend sur toute la hauteur du navigateur
+    Affichage flex pour ses deux enfants #titre et #listeData (en tant que lignes)
+*/
+#parent {
+    height: 100vh;
+    background-color: magenta;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Le titre à une hauteur fixe */
+#titre {
+    background-color: mediumseagreen;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+/* 
+    Liste data prend toute la place de son parent
+    Affichage flex pour chacun de ses enfants
+    Ses enfants vont s'étirer sur toute la hauteur disponible
+*/
+#listeData {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* <- étirement sur toute la hauteur */
+}
+
+/*
+    Représente les enfants de listeData
+    Le flex: 1 est important
+*/
+#listeData > span {
+    margin-left: 50px;
+    margin-right: 50px;
+    flex: 1;
+}
+
+/* Les enfants sur une ligne pair son en orange 'peru' */
+#listeData > span:nth-child(odd) {
+    background-color: peru;
+}
+
+/* Les enfants sur une ligne impair sont rouge */
+#listeData > span:nth-child(even) {
+    background-color: red;
+}
